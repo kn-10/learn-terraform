@@ -22,3 +22,6 @@ output "Second_Value_in_List" {
   value = element(var.v2, 4)
 }
 
+output "FruitDetails" {
+  value = "Fruit name is apple and quantity is ${var.fruits["apple"]["quantity"]}"
+}
