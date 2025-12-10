@@ -14,3 +14,11 @@ output "Value_in_Map" {
   value = var.v3["abc"]
 }
 
+output "Value_in_Map1" {
+  value = lookup(var.v3, "abc1", "none")
+}
+
+output "Second_Value_in_List" {
+  value = element(var.v2, 4)
+}
+
