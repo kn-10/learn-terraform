@@ -18,6 +18,7 @@ resource "aws_instance" "instances" {
 }
 
 resource "aws_route53_record" "frontend" {
+  count                  = length(var.components)
   zone_id = var.zone_id
   name    = "${element(var.components,count.index)}-dev"
   type    = "A"
@@ -25,6 +26,5 @@ resource "aws_route53_record" "frontend" {
 
   records = [element(aws_instance.instances.*.private_ip,count.index)]
 }
-
 
 
