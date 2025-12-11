@@ -13,13 +13,13 @@ resource "aws_instance" "instances" {
   vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
-    Name = "$(element(var.components,count.index)}-dev"
+    Name = "${element(var.components,count.index)}-dev"
   }
 }
 
 resource "aws_route53_record" "frontend" {
   zone_id = var.zone_id
-  name    = "$(element(var.components,count.index)}-dev"
+  name    = "${element(var.components,count.index)}-dev"
   type    = "A"
   ttl     = 30
 
