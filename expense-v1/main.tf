@@ -7,9 +7,9 @@ terraform {
   }
 }
 resource "aws_instance" "frontend" {
-  ami                    =  "ami-0b4f379183e5706b9"
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-0a13f9496e8f730c7"]
+  ami                    =  var.ami
+  instance_type          = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
     Name = "frontend-dev"
@@ -17,7 +17,7 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_route53_record" "frontend" {
-  zone_id = "Z0266758558URTEO39RC"
+  zone_id = var.ami
   name    = "frontend-dev"
   type    = "A"
   ttl     = 30
