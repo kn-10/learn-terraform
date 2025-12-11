@@ -28,9 +28,9 @@ resource "aws_route53_record" "frontend" {
 
 
 resource "aws_instance" "backend" {
-  ami                    =  "ami-0b4f379183e5706b9"
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-0a13f9496e8f730c7"]
+  ami                    =  var.ami
+  instance_type          = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
 
 tags = {
   Name = "backend-dev"
