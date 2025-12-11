@@ -21,6 +21,7 @@ resource "aws_route53_record" "frontend" {
   type                  = "A"
   zone_id               = "Z0266758558URTEO39RC"
   records               = [aws_instance.frontend.private_ip]
+  ttl                   = 30
 }
 
 
@@ -39,7 +40,9 @@ resource "aws_route53_record" "backend" {
   type                  = "A"
   zone_id               = "Z0266758558URTEO39RC"
   records               = [aws_instance.backend.private_ip]
+  ttl                   = 30
 }
+
 
 
 resource "aws_instance" "mysql" {
@@ -58,5 +61,6 @@ resource "aws_route53_record" "mysql" {
   type                  = "A"
   zone_id               = "Z0266758558URTEO39RC"
   records               = [aws_instance.mysql.private_ip]
+  ttl                   = 30
 }
 
