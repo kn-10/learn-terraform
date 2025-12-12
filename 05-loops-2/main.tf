@@ -39,3 +39,4 @@ resource "null_resource" "test2" {
     command = "echo ${lookup(each.value, "name", "null")} = ${lookup(each.value, "quantity", "null")}"
   }
 }
+
