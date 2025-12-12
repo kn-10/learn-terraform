@@ -23,7 +23,7 @@ resource "aws_route53_record" "records" {
   name                   = lookup(each.value,"name",null)
   type                   = "A"
   ttl                    = 30
-  records                = [lookup(lookup(each.key,aws_route53_record.records,"name",null)),"private_ip",null]
+  records                = [lookup(lookup(each.key,aws_instance.instances,"name",null)),"private_ip",null]
 }
 
 
