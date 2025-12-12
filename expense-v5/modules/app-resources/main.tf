@@ -22,7 +22,7 @@ resource "aws_route53_record" "records" {
   name                   = var.name
   type                   = "A"
   ttl                    = 30
-  records                = aws_instance.instance.private_ip
+  records                = [aws_instance.instance.private_ip]
 }
 
 
