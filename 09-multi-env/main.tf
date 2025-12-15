@@ -8,5 +8,5 @@ terraform {
 
     value = var.test
   }
-  }
+
 
